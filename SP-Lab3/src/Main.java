@@ -17,7 +17,6 @@ public class Main {
         cap11.add(cap111);
         cap111.add(new Paragraph("Text from subchapter 1.1.1"));
         cap111.add(cap1111);
-        cap1111.add(new Image("Image subchapter 1.1.1.1"));
 
         noapteBuna.print();
     }

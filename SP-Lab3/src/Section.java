@@ -9,14 +9,25 @@ public class Section implements Element {
         this.elements = new ArrayList<Element>();
     }
 
+    public Section(Section section) {
+        this.title = section.title;
+        this.elements = section.elements;
+    }
+
     @Override
-    public void add(Element element) throws Exception {
+    public void add(Element elementToBeAdded) throws Exception {
+        Element element = Utils.checkAndReturnElementType(elementToBeAdded);
         for (Element i : this.elements)
             if (i.find(element))
                 throw new Exception("Unsupported Operation");
 
         this.elements.add(element);
     }
+
+//    @Override
+//    public void add(Section section) throws Exception {
+//        this.elements.append(section.elements);
+//    }
 
     @Override
     public void remove(Element element) {
