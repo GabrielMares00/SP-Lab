@@ -5,6 +5,10 @@ public class Image implements Element {
         this.imageName = imageName;
     }
 
+    public Image(Image image) {
+        this.imageName = image.imageName;
+    }
+
     public void print() {
         System.out.println(this.imageName);
     }

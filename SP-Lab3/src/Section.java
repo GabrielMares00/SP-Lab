@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Section implements Element {
     private String title;
@@ -11,12 +13,13 @@ public class Section implements Element {
 
     public Section(Section section) {
         this.title = section.title;
-        this.elements = section.elements;
+        this.elements = new ArrayList<>();
+        Collections.copy(this.elements, section.elements);
     }
 
     @Override
     public void add(Element elementToBeAdded) throws Exception {
-        Element element = Utils.checkAndReturnElementType(elementToBeAdded);
+        Element element = Utils.checkAndReturnCopy(elementToBeAdded);
         for (Element i : this.elements)
             if (i.find(element))
                 throw new Exception("Unsupported Operation");

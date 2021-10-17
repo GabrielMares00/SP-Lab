@@ -1,13 +1,13 @@
 public class Utils {
-    public static Element checkAndReturnElementType(Element element) {
+    public static Element checkAndReturnCopy(Element element) {
         if (element instanceof Section)
-            return (Section)element;
+            return new Section((Section)element);
         else if (element instanceof Paragraph)
-            return (Paragraph)element;
+            return new Paragraph((Paragraph)element);
         else if (element instanceof Table)
-            return (Table)element;
+            return new Table((Table)element);
         else if (element instanceof Image)
-            return (Image)element;
+            return new Image((Image) element);
 
         return null;
     }

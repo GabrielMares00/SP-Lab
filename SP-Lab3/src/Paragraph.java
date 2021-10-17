@@ -5,6 +5,10 @@ public class Paragraph implements Element {
         this.text = text;
     }
 
+    public Paragraph(Paragraph paragraph) {
+        this.text = paragraph.text;
+    }
+
     public void print() {
         System.out.println(this.text);
     }

@@ -5,6 +5,10 @@ public class Table implements Element {
         this.title = title;
     }
 
+    public Table(Table table) {
+        this.title = table.title;
+    }
+
     public void print() {
         System.out.println(this.title);
     }
