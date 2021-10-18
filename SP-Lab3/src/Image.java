@@ -22,13 +22,4 @@ public class Image implements Element {
     public void remove(Element element) {
         //not needed
     }
-
-    @Override
-    public boolean find(Element element) {
-        if (!(element instanceof Image))
-            return false;
-        else {
-            return ((Image) element).imageName.equals(this.imageName);
-        }
-    }
 }

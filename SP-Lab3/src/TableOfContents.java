@@ -12,10 +12,4 @@ public class TableOfContents implements Element {
     public void remove(Element element) {
         //not needed
     }
-
-    @Override
-    public boolean find(Element element) {
-        //not needed
-        return false;
-    }
 }

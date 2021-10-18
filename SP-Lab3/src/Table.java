@@ -22,13 +22,4 @@ public class Table implements Element {
     public void remove(Element element) {
         //not needed
     }
-
-    @Override
-    public boolean find(Element element) {
-        if (!(element instanceof Table))
-            return false;
-        else {
-            return ((Table) element).title.equals(this.title);
-        }
-    }
 }
