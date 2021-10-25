@@ -4,11 +4,11 @@ public class Main {
         Paragraph p1 = new Paragraph("Paragraph 1");
         cap1.addWithoutCopy(p1);
         Paragraph p2 = new Paragraph("Paragraph 2");
-        cap1.addWithoutCopy(p2);
+        cap1.add(p2);
         Paragraph p3 = new Paragraph("Paragraph 3");
         cap1.addWithoutCopy(p3);
         Paragraph p4 = new Paragraph("Paragraph 4");
-        cap1.addWithoutCopy(p4);
+        cap1.add(p4);
         System.out.println("Printing without Alignment");
         System.out.println();
         cap1.print();
