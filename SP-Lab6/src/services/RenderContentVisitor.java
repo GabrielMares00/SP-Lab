@@ -2,7 +2,7 @@ package services;
 
 import models.*;
 
-public class RenderContentVisitor implements Visitor{
+public class RenderContentVisitor implements Visitor {
     @Override
     public void visitBook(Book book) {
         System.out.println("Carte: " + book.getTitle());

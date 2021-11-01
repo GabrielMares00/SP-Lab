@@ -1,8 +1,5 @@
 import models.*;
-import services.AlignCenter;
-import services.AlignLeft;
-import services.AlignRight;
-import services.RenderContentVisitor;
+import services.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -21,5 +18,9 @@ public class Main {
         cap1.add(new Table("Table 1"));
         RenderContentVisitor stats = new RenderContentVisitor();
         cap1.accept(stats);
+
+        CountContentVisitor counter = new CountContentVisitor();
+        cap1.accept(counter);
+        counter.showCountStatistics();
     }
 }
