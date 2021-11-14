@@ -16,11 +16,21 @@ public class Main {
         cap1.add(new Image("ImageTwo"));
         cap1.addWithoutCopy(new Paragraph("Some text"));
         cap1.add(new Table("Table 1"));
+        Book carte = new Book("Cartea");
+        carte.addAuthor(new Author("Iulius Ceasar"));
+        carte.addContent(new TableOfContents());
+        carte.addContent(cap1);
+
         RenderContentVisitor stats = new RenderContentVisitor();
-        cap1.accept(stats);
+        carte.accept(stats);
 
         CountContentVisitor counter = new CountContentVisitor();
-        cap1.accept(counter);
+        carte.accept(counter);
         counter.showCountStatistics();
+
+        BookSaverVisitor jsonParser = new BookSaverVisitor();
+        carte.accept(jsonParser);
+        jsonParser.endJsonString();
+        jsonParser.printJsonString();
     }
 }
