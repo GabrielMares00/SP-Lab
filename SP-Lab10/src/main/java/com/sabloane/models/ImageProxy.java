@@ -3,10 +3,24 @@ package com.sabloane.models;
 import com.sabloane.services.Visitee;
 import com.sabloane.services.Visitor;
 
-public class ImageProxy implements Element, Picture, Visitee {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class ImageProxy extends Element implements Picture, Visitee {
     private String url;
+
+    @OneToOne
     private Dimension dim = new Dimension(300, 300);
+
+    @OneToOne
     private Image img;
+
+    @Id
+    @GeneratedValue
+    private Long id;
 
     public ImageProxy(String url) {
         this.url = url;
@@ -16,6 +30,12 @@ public class ImageProxy implements Element, Picture, Visitee {
         this.url = imageProxy.url;
         this.dim = imageProxy.dim;
         this.img = imageProxy.img;
+    }
+
+    public ImageProxy() {
+        this.url = "";
+        this.dim = null;
+        this.img = null;
     }
 
     public String getUrl() {

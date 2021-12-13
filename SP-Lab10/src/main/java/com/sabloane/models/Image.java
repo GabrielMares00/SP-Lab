@@ -5,14 +5,25 @@ import com.sabloane.services.ImageLoader;
 import com.sabloane.services.Visitee;
 import com.sabloane.services.Visitor;
 
+import javax.persistence.*;
 import java.util.concurrent.TimeUnit;
 
-public class Image implements Element, Picture, Visitee {
+@Entity
+public class Image extends Element implements Picture, Visitee {
     private String imageName;
+
+    @OneToOne
     private Dimension dim = new Dimension(400,400);
 
+    @Transient
     private ImageLoader lodaer;
+
+    @Transient
     private ImageLoaderFactory imageLoaderFactory = new ImageLoaderFactory();
+
+    @Id
+    @GeneratedValue
+    private Long id;
 
     public Image(String imageName) {
         this.imageName = imageName;
@@ -25,6 +36,11 @@ public class Image implements Element, Picture, Visitee {
 
     public Image(Image image) {
         this.imageName = image.imageName;
+    }
+
+    public Image() {
+        this.imageName = "";
+        this.dim = null;
     }
 
     public String getImageName() {

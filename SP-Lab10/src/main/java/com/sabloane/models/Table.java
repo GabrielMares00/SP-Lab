@@ -3,8 +3,17 @@ package com.sabloane.models;
 import com.sabloane.services.Visitee;
 import com.sabloane.services.Visitor;
 
-public class Table implements Element, Visitee {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Table extends Element implements Visitee {
     private String title;
+
+    @Id
+    @GeneratedValue
+    private Long id;
 
     public Table(String title) {
         this.title = title;
@@ -12,6 +21,10 @@ public class Table implements Element, Visitee {
 
     public Table(Table table) {
         this.title = table.title;
+    }
+
+    public Table() {
+        this.title = "";
     }
 
     public String getTitle() {

@@ -4,12 +4,23 @@ import com.sabloane.services.Utils;
 import com.sabloane.services.Visitee;
 import com.sabloane.services.Visitor;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Section implements Element, Visitee {
+@Entity
+public class Section extends Element implements Visitee {
     private String title;
+
+    @OneToMany
     private ArrayList<Element> elements;
+
+    @Id
+    @GeneratedValue
+    private Long id;
 
     public Section(String title) {
         this.title = title;
@@ -20,6 +31,10 @@ public class Section implements Element, Visitee {
         this.title = section.title;
         this.elements = new ArrayList<>();
         Collections.copy(this.elements, section.elements);
+    }
+
+    public Section() {
+        this.title = "";
     }
 
     public String getTitle() {

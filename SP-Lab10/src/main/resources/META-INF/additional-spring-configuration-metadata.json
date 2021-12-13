@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "ming.PhysicalNamingStrategyStandardImpl",
+      "type": "java.lang.String",
+      "description": "Description for ming.PhysicalNamingStrategyStandardImpl."
+  }
+] }
