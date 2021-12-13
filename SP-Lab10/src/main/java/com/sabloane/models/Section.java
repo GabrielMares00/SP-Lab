@@ -10,13 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 @Entity
 public class Section extends Element implements Visitee {
     private String title;
 
     @OneToMany
-    private ArrayList<Element> elements;
+    private List<Element> elements;
 
     @Id
     @GeneratedValue
@@ -41,7 +42,7 @@ public class Section extends Element implements Visitee {
         return title;
     }
 
-    public ArrayList<Element> getElements() {
+    public List<Element> getElements() {
         return elements;
     }
 

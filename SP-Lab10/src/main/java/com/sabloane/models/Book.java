@@ -6,6 +6,7 @@ import com.sabloane.services.Visitor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Book implements Visitee {
@@ -14,7 +15,7 @@ public class Book implements Visitee {
     @OneToMany (targetEntity = Element.class)
     private ArrayList<Element> elements;
 
-    @ManyToMany
+    @OneToMany (targetEntity = Author.class)
     private ArrayList<Author> authors;
 
     @Id
@@ -49,6 +50,18 @@ public class Book implements Visitee {
 
     public ArrayList<Author> getAuthors() {
         return authors;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setElements(ArrayList<Element> elements) {
+        this.elements = elements;
+    }
+
+    public void setAuthors(ArrayList<Author> authors) {
+        this.authors = authors;
     }
 
     @Override
